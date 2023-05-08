@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.3.final using JasperReports Library version 6.20.3-415f9428cffdb6805c6f85bbb29ebaf18813a2ab  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tiket_cinema" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+    <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <field name="film_name" class="java.lang.String">
+    </field>
+    <field name="tayang_atau_tidak" class="java.lang.String">
+    </field>
+    <field name="tanggal_tayang" class="java.sql.Date">
+    </field>
+    <field name="jam_mulai" class="java.sql.Time">
+    </field>
+    <field name="jam_selesai" class="java.sql.Time">
+    </field>
+    <field name="harga_tiket" class="java.lang.Integer">
+    </field>
+    <field name="studio_name" class="java.lang.Character">
+    </field>
+    <field name="nomor_kursi" class="java.lang.Integer">
+    </field>
+    <background>
+        <band height="148" splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="262" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="-10" y="-8" width="842" height="270" forecolor="#260CA8" backcolor="#03855E" uuid="f05576c4-55a0-4c4f-8aa8-b3eaf5c2ef32"/>
+                <staticText>
+                    <reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#FFFEBA" backcolor="#0D34E0" uuid="e42b996b-0afd-4920-842f-b16895b7ee8d"/>
+                    <box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4">
+                        <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                        <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                        <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                        <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    </box>
+                    <textElement textAlignment="Center" verticalAlignment="Bottom">
+                        <font fontName="Magneto" size="40" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[THE CINEMA]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="SubTitle" mode="Transparent" x="-30" y="244" width="797" height="45" forecolor="#DBD58C" uuid="092f2519-e8c6-4a39-8b8b-78c4bb45c5f3"/>
+                    <textElement textAlignment="Right" rotation="None">
+                    </textElement>
+                    <text><![CDATA[The Cinema Botani Square Bogor   The Cinema Botani Square Bogor  The Cinema Botani Square Bogor  The Cinema Botani Square]]></text>
+                </staticText>
+                <frame>
+                    <reportElement mode="Opaque" x="0" y="60" width="801" height="6" forecolor="#000000" backcolor="#FF8605" uuid="1516e285-9a1c-46f4-9e07-840b77318cdb"/>
+                </frame>
+                <frame>
+                    <reportElement mode="Opaque" x="-1" y="72" width="802" height="8" forecolor="#000000" backcolor="#FFECA1" uuid="6b1a11e7-1fd7-4763-9a46-f165f672d982"/>
+                </frame>
+                <frame>
+                    <reportElement mode="Opaque" x="-3" y="72" width="806" height="3" forecolor="#000000" backcolor="#FC9A21" uuid="348ebda9-ae6d-4f7c-b8ae-a969f6a5cefc"/>
+                </frame>
+                <frame>
+                    <reportElement mode="Opaque" x="780" y="-10" width="62" height="280" forecolor="#A5D698" backcolor="#AFD68D" uuid="e4bb3caa-d9e8-48a4-97b0-57068948a45b"/>
+                    <staticText>
+                        <reportElement x="-40" y="10" width="100" height="271" forecolor="#0E7D50" uuid="aad05f8a-c90f-4358-9f31-e052972d4e99"/>
+                        <textElement rotation="Right">
+                        </textElement>
+                        <text><![CDATA[MOVIE TIKET THE CINEMA]]></text>
+                    </staticText>
+                    <rectangle>
+                        <reportElement mode="Opaque" x="0" y="8" width="7" height="273" forecolor="#F4FCCA" backcolor="#8A0F13" uuid="fc699752-5389-4b62-8aa0-b68b2bac9875"/>
+                    </rectangle>
+                </frame>
+                <line>
+                    <reportElement positionType="FixRelativeToBottom" x="233" y="44" width="555" height="1" uuid="501ac6c4-e9d4-43cb-ba6b-7f2f44394cf3"/>
+                    <graphicElement>
+                        <pen lineWidth="0.5" lineColor="#999999"/>
+                    </graphicElement>
+                </line>
+                <staticText>
+                    <reportElement style="Column header" mode="Transparent" x="210" y="89" width="110" height="32" forecolor="#6B0F15" backcolor="#FCFAFA" uuid="ef58a2ab-5572-4342-a5de-1dc5389ec2f3">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6854d8ca-af27-4649-8053-9913ab008287"/>
+                    </reportElement>
+                    <textElement>
+                    </textElement>
+                    <text><![CDATA[film_name]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="590" y="10" width="110" height="39" forecolor="#821311" uuid="84ebe658-3871-4c6a-847d-2ad5ea95cd49">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b0e7e27-a59d-4c22-83b6-c6f529c8444e"/>
+                    </reportElement>
+                    <textElement>
+                    </textElement>
+                    <text><![CDATA[studio_name]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" mode="Transparent" x="30" y="148" width="99" height="18" forecolor="#D9DB88" backcolor="#FAF9EB" uuid="5915883d-1bd5-4d33-8c8c-d20f54fe4104">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82808e27-b740-4666-8cf3-af871148f506"/>
+                    </reportElement>
+                    <textElement>
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[tanggal_tayang]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="656" y="90" width="124" height="31" forecolor="#B3985B" uuid="1594bb4a-6fcb-4e4a-99ec-b3a690d539f2">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="50195863-c32d-487a-a2e6-c64ff41938a3"/>
+                    </reportElement>
+                    <textElement>
+                    </textElement>
+                    <text><![CDATA[nomor_kursi]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="320" y="148" width="99" height="18" forecolor="#C9C175" uuid="a36300ad-729c-4b9b-ada2-fd22f0ddd1fa">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46aafa5c-30e6-4db8-bdf3-d0cf514d4691"/>
+                    </reportElement>
+                    <textElement>
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[jam_mulai]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="656" y="169" width="109" height="34" forecolor="#C2B85D" uuid="f0a3155e-ce40-4025-a3ae-0c6b2389c61d">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6061f2f9-f510-4da7-8b49-f74398138dfd"/>
+                    </reportElement>
+                    <textElement>
+                    </textElement>
+                    <text><![CDATA[harga_tiket]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="470" y="148" width="99" height="18" forecolor="#C7C785" uuid="9e04a63d-6e42-4644-91e2-9b19deee6f3d">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be375e9e-4189-4c0d-a820-3d3c1b0d0c8e"/>
+                    </reportElement>
+                    <textElement>
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[jam_selesai]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement style="Column header" x="169" y="148" width="99" height="18" forecolor="#C7C279" uuid="d530019e-2862-49d7-852a-c54313e9dfba">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7178517d-e154-41d8-a893-b6f82bda830e"/>
+                    </reportElement>
+                    <textElement>
+                        <font isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[tayang_atau_tidak]]></text>
+                </staticText>
+                <rectangle>
+                    <reportElement x="29" y="140" width="540" height="4" forecolor="#FCF1AE" backcolor="#FAE398" uuid="8b248d1f-e52c-4345-b1a2-bb4bd788ecab"/>
+                </rectangle>
+                <rectangle>
+                    <reportElement x="30" y="211" width="540" height="4" forecolor="#FCF1AE" backcolor="#FAE398" uuid="9a8f03ce-25d2-4067-a880-eb774b8ec057"/>
+                </rectangle>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="135" splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="18" splitType="Stretch">
+            <frame>
+                <reportElement style="Row" mode="Opaque" x="0" y="0" width="786" height="18" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="332" y="-320" width="139" height="31" forecolor="#5C0806" uuid="d63e3acc-3a19-408d-92cc-c76d8e9384c1">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6854d8ca-af27-4649-8053-9913ab008287"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{film_name}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="159" y="-240" width="99" height="18" forecolor="#B8AB35" uuid="1eafa31d-ef9c-474a-b7a1-f667500caf24">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7178517d-e154-41d8-a893-b6f82bda830e"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{tayang_atau_tidak}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="20" y="-236" width="99" height="18" forecolor="#DBC535" uuid="bb6c6919-f8c5-4d99-bbfa-ba2413195d98">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82808e27-b740-4666-8cf3-af871148f506"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{tanggal_tayang}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="310" y="-240" width="99" height="18" forecolor="#D1BD49" uuid="3045d2df-99c4-45cb-ad4a-00c49a36ab5f">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46aafa5c-30e6-4db8-bdf3-d0cf514d4691"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{jam_mulai}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="460" y="-240" width="99" height="18" forecolor="#B8A846" uuid="c25f1853-9409-4c8a-b248-9176a886e45c">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be375e9e-4189-4c0d-a820-3d3c1b0d0c8e"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{jam_selesai}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="648" y="-206" width="104" height="29" forecolor="#E7EDB4" uuid="4ba1aa8d-241b-4d79-934b-53765ffcab96">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6061f2f9-f510-4da7-8b49-f74398138dfd"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{harga_tiket}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="700" y="-397" width="59" height="28" forecolor="#8A100E" uuid="ae72e5fa-26a6-43dc-9c84-1186428cb1d4">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4b0e7e27-a59d-4c22-83b6-c6f529c8444e"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{studio_name}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement style="Detail" positionType="Float" x="648" y="-287" width="109" height="35" forecolor="#E6E5B1" uuid="62292d1d-a328-4d7e-8ac9-e3a5d93b23e6">
+                        <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="50195863-c32d-487a-a2e6-c64ff41938a3"/>
+                    </reportElement>
+                    <textElement>
+                        <font size="14"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{nomor_kursi}]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="25" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
