@@ -22,19 +22,21 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig{
     @Bean
     public UserDetailsService userDetailsService(){
-//        UserDetails admin = User.withUsername("diva").password(encoder.encode("juan")).roles("ADMIN").build();
-//        UserDetails user = User.withUsername("j").password(encoder.encode("j")).roles("USER").build();
+//        UserDetails admin = User.withUsername("diva").password("juan").roles("ADMIN").build();
+//        UserDetails user = User.withUsername("j").password("j").roles("USER").build();
 //        return new InMemoryUserDetailsManager(admin,user);
         //atas ini kalo secara manual, yang bawah secara Database
         return new UserInfoUserDetailsService();
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity.csrf().disable().authorizeHttpRequests().requestMatchers("/Film").permitAll()
-                .and().authorizeHttpRequests().requestMatchers("/Film/Judul-Film/{film_name}").permitAll()
-                //.and().authorizeHttpRequests().requestMatchers("/Film/Tayang").permitAll()
-                .and().authorizeHttpRequests().requestMatchers("/Film/Jadwal/{film_name}").permitAll()
-                .and().authorizeHttpRequests().requestMatchers("/Film/**").authenticated().and().formLogin().and().build();
+        return httpSecurity.csrf()
+                .disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/Film","/Jadwal","/Seats","/Studio",
+                        "/Film/Judul-Film/{film_name}","/Film/Tayang","/Film//Jadwal/{film_name}","/Seats/Studios/{studio}/{nomor_kursi}","/swagger-ui/**","/v3/api-docs/**").permitAll()
+//                .anyRequest().authenticated().and().httpBasic() formLogin()
+                .and().authorizeHttpRequests().requestMatchers("/Users/**","/Film/**","/Jadwal/**","/Report/**").authenticated().and().httpBasic().and().build();
     }
 
     @Bean

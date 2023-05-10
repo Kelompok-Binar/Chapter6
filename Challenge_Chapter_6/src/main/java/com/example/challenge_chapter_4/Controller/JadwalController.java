@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -65,6 +66,7 @@ public class JadwalController {
 
     @PostMapping(value = "/addJadwal")
     @Operation(description = "Menambahkan Jadwal Ke Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<JadwalEntity> addJadwal(@RequestBody JadwalEntity param){
         try {
             JadwalEntity jadwal = js.addJadwal(param);
@@ -79,6 +81,7 @@ public class JadwalController {
 
     @PostMapping(value = "/addMultipleJadwal")
     @Operation(description = "Menambahkan Banyak Jadwal Sekaligus Ke Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<List<JadwalEntity>> addMultipleJadwal(@RequestBody List<JadwalEntity> param){
         try {
             List<JadwalEntity> jadwal = js.addMultipleJadwal(param);
@@ -93,6 +96,7 @@ public class JadwalController {
 
     @PutMapping(value = "/updateJadwal")
     @Operation(description = "Mengupdate Jadwal Tertentu Dari Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<JadwalEntity> updateJadwal(@RequestBody JadwalEntity param){
         try {
             JadwalEntity jadwal = js.updateJadwal(param);
@@ -107,6 +111,7 @@ public class JadwalController {
 
     @DeleteMapping(value = "/deleteJadwal/{id_jadwal}")
     @Operation(description = "Menghapus Jadwal Tertentu Dari Database Berdasarkan ID Jadwal")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<JadwalEntity> deleteJadwal(@PathVariable int id_jadwal){
         try {
             JadwalEntity jadwal = js.deleteJadwal(id_jadwal);

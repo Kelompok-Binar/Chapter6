@@ -90,7 +90,6 @@ public class FilmController {
 
     @GetMapping(value = "/Tayang")
     @Operation(description = "Menampilkan Film Yang Tayang")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<List<FilmEntity>> getFilmTTayang(){
         try {
             List<FilmEntity> film = fs.getTayang();
@@ -119,6 +118,7 @@ public class FilmController {
 
     @PostMapping(value = "/addFilm")
     @Operation(description = "Menambahkan Film Ke Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<FilmEntity> addFilm(@RequestBody FilmEntity param){
         try {
             FilmEntity film = fs.addFilm(param);
@@ -133,6 +133,7 @@ public class FilmController {
 
     @PostMapping(value = "/addMultipleFilm")
     @Operation(description = "Menambahkan Banyak Film Sekaligus Ke Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<List<FilmEntity>> addMultipleFilm(@RequestBody List<FilmEntity> param){
         try {
             List<FilmEntity> film = fs.addMultipleFilm(param);
@@ -147,6 +148,7 @@ public class FilmController {
 
     @PutMapping(value = "/updateFilm")
     @Operation(description = "Mengupdate Film Tertentu Dari Database")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<FilmEntity> updateFilm(@RequestBody FilmEntity param){
         try {
             FilmEntity film = fs.updateFilm(param);
@@ -168,6 +170,7 @@ public class FilmController {
 
     @DeleteMapping(value = "deleteFilm/{film_code}")
     @Operation(description = "Menghapus Film Tertentu Dari Database Berdasarkan Film Code")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<FilmEntity> delFilm(@PathVariable String film_code){
         try {
             FilmEntity film = fs.delFilm(film_code);

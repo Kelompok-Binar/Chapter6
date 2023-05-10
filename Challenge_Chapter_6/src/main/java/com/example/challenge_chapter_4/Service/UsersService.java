@@ -18,8 +18,8 @@ import java.util.Optional;
 public class UsersService {
     @Autowired
     private UsersInterface R;
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public Page<UsersEntity> getAll(int pageNumber, int pageSize){
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
@@ -44,7 +44,7 @@ public class UsersService {
             throw new RuntimeException("User ID " +param.getId_user() + " Sudah Ada");
         }
         else{
-            //param.setPassword(passwordEncoder.encode(param.getPassword()));
+            param.setPassword(passwordEncoder.encode(param.getPassword()));
             return R.save(param);
         }
 
@@ -59,7 +59,7 @@ public class UsersService {
                 throw new RuntimeException("User ID " +user.getId_user() + " Sudah Ada");
             }
             else{
-                //user.setPassword(passwordEncoder.encode(user.getPassword()));
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
                 list.add(R.save(user));
             }
         }

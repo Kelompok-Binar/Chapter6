@@ -16,6 +16,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -33,6 +34,7 @@ public class UsersController {
 
     @GetMapping()
     @Operation(description = "Menampilkan Semua Users")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<ResponseEntity<List<UsersEntity>>> getAll(
             @RequestParam(defaultValue = "0")int pageNumber,
             @RequestParam(defaultValue = "10") int pageSize
@@ -57,6 +59,7 @@ public class UsersController {
 
     @GetMapping(value = "/findUser/{id_user}") //yang ada di dalam {} disamakan dengan
     @Operation(description = "Mencari User Berdasarkan ID User")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public CommonResponse<UsersEntity> getById(@PathVariable int id_user){ // yang ini "id_user"
         try {
             UsersEntity user = us.getById(id_user);
@@ -72,6 +75,7 @@ public class UsersController {
 
     @PostMapping(value = "/addUsers")
     @Operation(description = "Menambahkan User Tertentu Dari Database")
+    @PreAuthorize("hasAuthority('ROLE_USERS')")
     public CommonResponse<UsersEntity> addUsers(@RequestBody UsersEntity param){
         try {
             UsersEntity user = us.addUsers(param);
@@ -103,6 +107,7 @@ public class UsersController {
 
     @PutMapping(value = "/updateUser")
     @Operation(description = "Mengupdate Users Tertentu Dari Database")
+    @PreAuthorize("hasAuthority('ROLE_USERS')")
     public CommonResponse<UsersEntity> updateUser(@RequestBody UsersEntity param){
 
         try {
@@ -119,6 +124,7 @@ public class UsersController {
 
     @DeleteMapping(value = "/deleteUser/{id_user}")
     @Operation(description = "Menghapus Users Tertentu Dari Database Berdasarkan ID User")
+    @PreAuthorize("hasAuthority('ROLE_USERS')")
     public CommonResponse<UsersEntity> deleteUser(@PathVariable int id_user){
         try {
             UsersEntity user = us.delUser(id_user);
