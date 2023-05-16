@@ -2,8 +2,10 @@ package com.example.challenge_chapter_4.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,10 +35,15 @@ public class WebSecurityConfig{
         return httpSecurity.csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/Film","/Jadwal","/Seats","/Studio",
-                        "/Film/Judul-Film/{film_name}","/Film/Tayang","/Film//Jadwal/{film_name}","/Seats/Studios/{studio}/{nomor_kursi}","/swagger-ui/**","/v3/api-docs/**").permitAll()
+                .requestMatchers("/Film","/Jadwal","/Studio",
+                        "/Film/Judul-Film/{film_name}","/Film/Tayang","/Film//Jadwal/{film_name}","/Seats/Studios/{studio}/{nomor_kursi}","/swagger-ui/**","/v3/api-docs/**", "/auth/**").permitAll()
 //                .anyRequest().authenticated().and().httpBasic() formLogin()
-                .and().authorizeHttpRequests().requestMatchers("/Users/**","/Film/**","/Jadwal/**","/Report/**").authenticated().and().httpBasic().and().build();
+                .and().authorizeHttpRequests().requestMatchers("/Seats/**","/Users/**","/Film/**","/Jadwal/**","/Report/**").authenticated().and().httpBasic().and().build();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
     }
 
     @Bean
